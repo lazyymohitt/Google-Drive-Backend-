@@ -1,9 +1,15 @@
 const express  =  require('express')
 const router = express.Router()
 
+// router.use(express.json())
+// router.use(express.urlencoded({extended:true}))
 
-router.get('/test',(req,res)=>{
-    res.send("user Test Routes")
+router.get('/register',(req,res)=>{
+    res.render('register')
 })
 
+router.post('/register',(req,res)=>{
+    console.log(req.body)
+    res.send("usserr is registeredddd")
+})
 module.exports = router
