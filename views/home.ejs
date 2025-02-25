@@ -5,15 +5,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
 </head>
 
 <body>
     <main class="h-screen w-screen p-5 bg-gray-100 dark:bg-gray-800">
-        <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold px-4 py-2 rounded">Upload File</button>
+        <button onclick="popUp()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold px-4 py-2 rounded">Upload File</button>
 
-        <div class="pop backdrop-blur fixed top-0 left-0 flex items-center justify-center h-screen w-screen">
+        <div class="pop hidden backdrop-blur fixed top-0 left-0 flex items-center justify-center h-screen w-screen">
+            <form action="/upload-file" method="post" enctype="multipart/form-data">
 
             <div class="flex items-center justify-center w-96">
+
+               
+
                 <label for="dropzone-file"
                     class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                     <div class="flex flex-col items-center justify-center pt-5 pb-6">
@@ -29,9 +37,30 @@
                     <input id="dropzone-file" type="file" name="file" class="hidden" />
                 </label>
             </div>
+            <button
+            class="bg-gray-700 mt-2 hover:bg-gray-900 text-bold text-white px-5 py-2 rounded"
+            > Upload File</button>
 
+        </form>
+            <button
+            onclick="closePopUp()"
+             class="absolute top-10 left-[75%]  text-gray-100 text-2xl  hover:text-gray-700 "
+            >
+            <i class="ri-close-large-fill"></i>
+            </button>
         </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script>
+
+        const popUp = ()=>{
+            document.querySelector(".pop").style.display = "flex"
+        }
+        const closePopUp = ()=>{
+            document.querySelector('.pop').style.display = "none"
+        }
+
+    </script>
 </body>
 
 </html>
