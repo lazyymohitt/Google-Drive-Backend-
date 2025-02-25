@@ -61,7 +61,6 @@ router.post("/login",
     const user  = await userModel.findOne({
       username:username
     })
-
     if(!user){
       return res.status(400).json({
         message:"Username and Passowrd are Incorrect"
